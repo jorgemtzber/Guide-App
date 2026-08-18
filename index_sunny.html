@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Sunny Isles Homecoming · MIA → 15901 Collins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#05323C;
+    --deep-soft:#2E6773;
+    --teal:#0D9497;
+    --turquoise:#2AC6C3;
+    --seafoam:#AFEDDB;
+    --pink:#FF6E95;
+    --pink-soft:#FFE1EA;
+    --gold:#F9B23C;
+    --sand:#FFF8F0;
+    --sand-deep:#FDEAD9;
+    --line:rgba(5,50,60,.13);
+    --shadow:0 1px 0 rgba(5,50,60,.05), 0 14px 30px -20px rgba(5,50,60,.6);
+    --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+    --body:"Outfit",ui-rounded,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;padding:0 0 60px;
+    background:var(--sand);
+    background-image:
+      radial-gradient(130% 55% at 50% 0%, rgba(175,237,219,.62) 0%, rgba(255,248,240,0) 60%),
+      radial-gradient(90% 42% at 100% 10%, rgba(255,110,149,.14) 0%, rgba(255,248,240,0) 55%);
+    color:var(--deep);
+    font-family:var(--body);
+    font-size:16.5px;line-height:1.52;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:540px;margin:0 auto;padding:0 16px;}
+
+  .hero{padding:32px 0 14px;text-align:center;}
+  .kicker{
+    display:inline-block;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+    font-weight:700;color:#fff;background:var(--pink);padding:5px 13px;border-radius:99px;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(30px,9.4vw,43px);line-height:1.02;letter-spacing:-.025em;margin:14px 0 9px;
+  }
+  .hero h1 span{
+    background:linear-gradient(92deg,var(--teal),var(--turquoise) 45%,var(--pink));
+    -webkit-background-clip:text;background-clip:text;color:transparent;display:block;
+  }
+  .hero p{margin:0;font-size:14px;color:var(--deep-soft);}
+  .hero p b{color:var(--deep);font-weight:600;}
+  .reef{height:3px;border-radius:3px;margin:17px 0 0;
+    background:linear-gradient(90deg,var(--seafoam),var(--turquoise),var(--gold),var(--pink));}
+  .rail{display:flex;gap:5px;margin:15px 0 0;}
+  .rail i{flex:1;height:6px;border-radius:6px;background:rgba(5,50,60,.12);font-style:normal;transition:background .2s ease;}
+  .rail i.done{background:linear-gradient(90deg,var(--turquoise),var(--gold));}
+
+  .pep{
+    margin:18px 0 0;background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:14px 16px;box-shadow:var(--shadow);font-size:14.6px;
+  }
+  .pep b{font-weight:600;}
+  .pep .mini{display:block;margin-top:8px;font-size:12.8px;color:var(--deep-soft);}
+
+  .fares{margin:14px 0 0;background:var(--deep);border-radius:18px;padding:15px 15px 13px;color:var(--sand);}
+  .fares .k{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--seafoam);font-weight:700;}
+  .fares .row{display:flex;gap:11px;align-items:center;margin-top:9px;}
+  .fares .amt{font-family:var(--display);font-weight:800;font-size:19px;flex:0 0 60px;letter-spacing:-.02em;}
+  .fares .row.win .amt{color:var(--gold);}
+  .fares .txt{font-size:13px;color:rgba(255,248,240,.82);line-height:1.4;}
+  .fares .txt b{color:#fff;font-weight:600;}
+
+  .stage{margin:32px 0 0;}
+  .stage-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .num{
+    flex:0 0 auto;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;
+    font-family:var(--display);font-weight:800;font-size:16px;color:#fff;
+    background:linear-gradient(140deg,var(--teal),var(--turquoise));
+    box-shadow:0 6px 14px -8px rgba(13,148,151,.9);
+  }
+  .stage-head .eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  .stage-head h2{font-family:var(--display);font-weight:600;font-size:20px;margin:1px 0 0;letter-spacing:-.015em;line-height:1.15;}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:15px 14px 14px;box-shadow:var(--shadow);}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
+  .badge{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+    padding:5px 9px;border-radius:8px;background:var(--sand-deep);color:var(--deep);}
+  .badge.tide{background:rgba(42,198,195,.16);color:#065E60;}
+  .badge.sun{background:rgba(249,178,60,.22);color:#7A4C00;}
+  .badge.rose{background:rgba(255,110,149,.16);color:#A8033D;}
+
+  .streetview{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin:0 0 12px;padding:13px 12px;border-radius:13px;text-decoration:none;
+    background:linear-gradient(135deg,var(--teal),var(--turquoise));
+    color:#fff;font-weight:700;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;
+    box-shadow:0 8px 18px -10px rgba(13,148,151,.85);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .streetview:active{transform:scale(.99);}
+  .streetview:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  .streetview .cam{font-size:16px;}
+
+  .map{margin:0 0 12px;background:var(--deep);border-radius:14px;padding:12px 0 12px 12px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .map pre{margin:0;padding-right:12px;font-family:var(--mono);font-size:11.4px;line-height:1.5;
+    color:var(--seafoam);white-space:pre;}
+  .map .hi{color:var(--gold);}
+  .map .warn{color:var(--pink);}
+  .map .you{color:#fff;font-weight:700;}
+
+  .look{
+    margin:0 0 11px;background:var(--sand-deep);border-radius:12px;padding:11px 12px;font-size:13.9px;line-height:1.45;
+  }
+  .look .lab{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;
+    color:#7A4C00;margin-bottom:3px;}
+  .look b{font-weight:600;}
+
+  .card ul{margin:0 0 4px;padding-left:17px;font-size:14.6px;}
+  .card li{margin:5px 0;}
+  .card li b{font-weight:600;}
+
+  .protip{
+    margin-top:11px;display:flex;gap:11px;align-items:flex-start;
+    background:linear-gradient(180deg,#FFF0F4,#fff);border:1px solid rgba(255,110,149,.3);
+    border-radius:14px;padding:12px 13px;
+  }
+  .protip .heart{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+    background:var(--pink);color:#fff;font-size:14px;}
+  .protip .body{flex:1;font-size:13.8px;line-height:1.45;}
+  .protip .body .lab{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;
+    color:#A8033D;margin-bottom:3px;}
+  .protip b{font-weight:600;}
+
+  .bailout{
+    margin-top:11px;border-radius:0 13px 13px 0;padding:10px 12px;font-size:13.6px;line-height:1.44;
+    background:rgba(249,178,60,.14);border-left:3px solid var(--gold);
+  }
+  .bailout .lab{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;
+    color:#7A4C00;margin-bottom:3px;}
+  .bailout b{font-weight:600;}
+
+  .check{
+    margin-top:12px;width:100%;font:inherit;color:var(--deep-soft);cursor:pointer;
+    background:var(--sand);border:1px dashed rgba(5,50,60,.28);border-radius:12px;
+    padding:11px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    -webkit-tap-highlight-color:transparent;transition:background .16s ease,color .16s ease;
+  }
+  .check:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  .stage.cleared .check{background:var(--gold);border-style:solid;border-color:var(--gold);color:var(--deep);}
+  .stage.cleared .card{opacity:.72;}
+  .stage.cleared .num{background:var(--gold);color:var(--deep);box-shadow:none;}
+
+  .victory{
+    margin-top:32px;border-radius:22px;padding:23px 18px;text-align:center;color:#fff;
+    background:linear-gradient(150deg,var(--teal),var(--turquoise) 55%,var(--pink));
+  }
+  .victory .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;opacity:.85;}
+  .victory .line{font-family:var(--display);font-weight:800;font-size:18.5px;line-height:1.32;margin:10px 0 0;letter-spacing:-.01em;}
+  .victory .sub{font-size:13.2px;margin:10px 0 0;opacity:.92;}
+
+  footer{margin-top:20px;text-align:center;font-size:12px;color:var(--deep-soft);line-height:1.55;}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">You've totally got this</div>
+    <h1>Your <span>Sunny Isles</span> Homecoming</h1>
+    <p><b>15901 Collins Ave</b> · about $2.25 and two easy buses away</p>
+    <div class="reef"></div>
+    <div class="rail" id="rail"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </header>
+
+  <div class="pep">
+    Here's the honest shape of this trip: <b>one free train, two buses, one pretty walk.</b> Buses come every 10–30 minutes, so nothing here is missable — the worst case is waiting with an ocean breeze. Every step below has a real Street View button so you can peek at the actual corner before you're standing on it.
+    <span class="mini">Heads up: two stops were listed differently in an older version of this plan (37th &amp; 38th). The verified stops are <b>40th St</b> and <b>Collins &amp; 43rd</b> — the buttons below point to the right corners.</span>
+  </div>
+
+  <div class="fares">
+    <div class="k">Money — pick one, then forget about it</div>
+    <div class="row win">
+      <div class="amt">$2.25</div>
+      <div class="txt"><b>EASY Ticket</b> from the machine at the train station (Step 3). Tap it on both buses — the second one's free.</div>
+    </div>
+    <div class="row">
+      <div class="amt">$4.50</div>
+      <div class="txt"><b>Apple Pay</b>, if the machine line is long. Totally fine — just use the <b>same phone</b> on both buses.</div>
+    </div>
+  </div>
+
+  <!-- ===== STEP 3 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">3</div>
+      <div><div class="eyebrow">The free skytrain</div><h2>MIA Mover → Airport Station</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">Free</span><span class="badge">5 min</span><span class="badge sun">Grab ticket here</span></div>
+
+      <a class="streetview" href="https://maps.google.com/?q=MIA+Mover+Station+Miami+International+Airport" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see the Mover station
+      </a>
+
+      <div class="look"><span class="lab">What you'll see</span>Big overhead signs reading <b>MIA Mover / Rental Car Center</b> on Level 3 — two escalators up from baggage claim. The train is automated, glassy, and there's only one place it goes. Impossible to take it the wrong way.</div>
+
+      <ul>
+        <li>Ride to the end — that's <b>Miami Airport Station</b>.</li>
+        <li>Find the <b>EASY Ticket machine</b> in the station and load one $2.25 fare (takes 2 minutes, saves $2.25).</li>
+        <li>Then head down to the ground-level bus bays.</li>
+      </ul>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Turn on <b>live location sharing</b> before you get on the Mover — signal dips inside. And keep your suitcase handle in your hand on the train, not parked across the aisle.</div>
+      </div>
+
+      <button class="check" type="button">Done — next!</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 4 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">4</div>
+      <div><div class="eyebrow">Bus one · the express</div><h2>Route 150 over the bay</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">25 min</span><span class="badge">Every 30 min</span><span class="badge sun">Aim for 12:08</span></div>
+
+      <a class="streetview" href="https://maps.google.com/?q=Miami+Airport+Station+Metrobus+bays" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see the bus bays
+      </a>
+
+      <div class="look"><span class="lab">What you'll see</span>A row of numbered bus bays at street level. Yours is the one signed <b>150</b> — the bus itself reads <b>150 MIAMI BEACH</b> on the front display. Departures: 11:38, <b>12:08</b>, 12:38, 1:08.</div>
+
+      <ul>
+        <li>Tap your EASY Ticket (or phone) flat on the farebox by the driver.</li>
+        <li>Sit near the front, bag between your feet — the ride crosses a gorgeous long bridge over Biscayne Bay. That bridge = you're going the right way.</li>
+        <li>Your stop is <b>Indian Creek Dr &amp; 40 St</b>, about 25 minutes in. It's a scheduled timepoint — the bus stops there every trip.</li>
+      </ul>
+
+      <div class="bailout"><span class="lab">If timing slips</span>Missed the 12:08? The 12:38 is the exact same bus, 30 minutes later. Zero sprinting required — ever.</div>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Set a <b>get-off alert for "Indian Creek Dr &amp; 40 St"</b> in the Transit app, then you can look at the water instead of the route map.</div>
+      </div>
+
+      <button class="check" type="button">Done — next!</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 5 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">5</div>
+      <div><div class="eyebrow">Step off in Mid-Beach</div><h2>Indian Creek Dr &amp; 40 St</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">~12:33 PM</span><span class="badge rose">40th — not 37th</span></div>
+
+      <a class="streetview" href="https://www.google.com/maps/search/?api=1&query=Indian+Creek+Dr+%26+40th+St+Miami+Beach+FL" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see this exact corner
+      </a>
+
+      <div class="map"><pre>  ~~~ INDIAN CREEK (water) ~~~   [W]
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   behind you — <span class="warn">don't walk toward it</span>
+
+  == INDIAN CREEK DR ============
+       <span class="you">[ YOU HOP OFF ]</span>  at 40 ST
+        |
+        |  face the tall beach hotels
+        |  and walk EAST one block
+        v
+  == COLLINS AVE ============  [E]
+        (ocean's just beyond)</pre></div>
+
+      <div class="look"><span class="lab">What you'll see</span>Calm water and low seawalls on one side; big oceanfront hotel towers one block the other way. <b>The towers are your compass — walk toward them.</b> The green street sign on the corner says 40 ST.</div>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Two-word text before you start walking: <b>"off bus 1."</b> It keeps your person in the loop at the exact halfway point.</div>
+      </div>
+
+      <button class="check" type="button">Done — next!</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 6 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">6</div>
+      <div><div class="eyebrow">The palm-corridor walk</div><h2>East, then north to Collins &amp; 43rd</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">5–10 min</span><span class="badge sun">Busy, sunny blocks</span></div>
+
+      <a class="streetview" href="https://www.google.com/maps/search/?api=1&query=Collins+Ave+%26+43rd+St+Miami+Beach+FL" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see your bus stop corner
+      </a>
+
+      <div class="map"><pre>              [N]  ^
+  43 ST --+-- <span class="hi">[ NB 100 STOP ]</span> &lt;== <span class="you">GOAL</span>
+          |     ocean side of Collins
+  42 ST --+
+          |   palms all the way up
+  41 ST --+-- big lit intersection
+          |   (shops + crosswalks)
+  40 ST --+&lt;== <span class="you">[ YOU START ]</span>
+          |
+      COLLINS AVE
+
+  turn-by-turn:
+  1. EAST on 40th, one block --&gt; Collins
+  2. LEFT (north) on Collins
+  3. three blocks up to 43 ST
+  4. wait on the OCEAN side</pre></div>
+
+      <div class="look"><span class="lab">What you'll see</span>Street numbers climbing — 41, 42, 43 — which means you're headed the right way. 41st St is the big bright corner with shops; that's your halfway landmark, not a wrong turn. Your stop is on the <b>ocean side</b> of Collins at 43rd, where the northbound buses pull in.</div>
+
+      <div class="bailout"><span class="lab">Permission to bail</span>If the walk with a suitcase in the heat feels like enough adventure for one day — <b>41st &amp; Collins is a perfect rideshare pickup</b>. Big, bright, easy for a driver to find, ~$30–40 home, zero guilt. You still did the cheap part.</div>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Wheeled bag behind you, crossbody in front, phone in hand. Cross Collins only at the signals — it's wide and drivers here are… Miami drivers.</div>
+      </div>
+
+      <button class="check" type="button">Done — next!</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 7 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">7</div>
+      <div><div class="eyebrow">Bus two · the coastal cruise</div><h2>Route 100 north — read the sign!</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">~40 min</span><span class="badge">Every 10–12 min</span><span class="badge rose">Sign must say Aventura</span></div>
+
+      <a class="streetview" href="https://www.google.com/maps/search/?api=1&query=Collins+Ave+%26+43rd+St+northbound+bus+stop+Miami+Beach" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see the northbound stop
+      </a>
+
+      <div class="map"><pre>  the one rule of this whole trip:
+
+  +---------------------------+
+  | 100  <span class="hi">AVENTURA MALL</span>        | ✓ <span class="you">HOP ON</span>
+  +---------------------------+
+  +---------------------------+
+  | 100  <span class="warn">HAULOVER</span>             | ✗ let it go
+  +---------------------------+
+   (some buses stop short — the
+    next Aventura one is ~10 min)
+
+  COLLINS &amp; 43  <span class="you">[BOARD]</span>
+     |
+     v  Bal Harbour Shops (fancy mall)
+     v  ~~ Haulover Park — long green bit ~~
+     v  towers come back = 3 min out!
+     v
+  <span class="hi">159 ST / KINGS POINT DR</span> == yours</pre></div>
+
+      <div class="look"><span class="lab">What you'll see</span>Buses roll in every few minutes. Glance at the glowing front display: <b>AVENTURA MALL = your ride.</b> Haulover = wave it past like a pro. Not sure? "Does this go to 159th Street?" — drivers get asked constantly.</div>
+
+      <ul>
+        <li>Tap the <b>same</b> ticket or same phone as bus one. EASY Ticket riders: this tap is free.</li>
+        <li>Settle in — Bal Harbour's designer windows, then a long stretch of green park, then the towers return.</li>
+      </ul>
+
+      <div class="bailout"><span class="lab">If the wrong bus happens anyway</span>Genuinely fine: stay on to <b>Bal Harbour Shops</b>, hop off somewhere bright and staffed, and catch the next Aventura-signed 100 or grab a 10-minute car. Just don't get off in the park stretch itself.</div>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Bag in front of your knees, one earbud out so you catch announcements, get-off alert set for <b>159 St</b>. Then the last 20 minutes are officially scenery time.</div>
+      </div>
+
+      <button class="check" type="button">Done — next!</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 8 ===== -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="num">8</div>
+      <div><div class="eyebrow">Home</div><h2>Collins &amp; 159th — you made it</h2></div>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="badge tide">~1:35–1:45 PM</span><span class="badge sun">No street to cross</span></div>
+
+      <a class="streetview" href="https://www.google.com/maps/search/?api=1&query=15901+Collins+Ave+Sunny+Isles+Beach+FL" target="_blank" rel="noopener">
+        <span class="cam">📸</span> Tap to see your building
+      </a>
+
+      <div class="map"><pre>         ATLANTIC OCEAN
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   |  <span class="hi">15901 COLLINS AVE</span>    |
+   |  your lobby · 2607    |
+   +-----------------------+
+    <span class="you">[ BUS DOOR OPENS HERE ]</span>
+      same side — just walk in
+  ==============================
+    COLLINS AVE  ^ northbound
+  ==============================
+       159 ST / KINGS POINT DR</pre></div>
+
+      <div class="look"><span class="lab">What you'll see</span>Your cue sequence: Bal Harbour Shops → long green park → towers again → <b>three minutes later, your stop.</b> Press the stop strip when the towers come back. The doors open on the <b>same side as your building</b> — no dragging a suitcase across six lanes. The 15901 address faces Collins.</div>
+
+      <div class="protip">
+        <div class="heart">♡</div>
+        <div class="body"><span class="lab">Pro safety tip</span>Text <b>"home"</b> from the lobby, then switch off location sharing. Unit number ready for the front desk before you're at it — not searched for on the sidewalk.</div>
+      </div>
+
+      <button class="check" type="button">I'm home! 🏝️</button>
+    </div>
+  </div>
+
+  <div class="victory">
+    <div class="k">The whole thing, one breath</div>
+    <p class="line">Skytrain down → 150 east over the bay → off at 40th → palm walk to Collins &amp; 43rd → 100 AVENTURA MALL → 159th → lobby</p>
+    <p class="sub">Same payment both taps · Aventura on the sign · ocean side, start to finish</p>
+  </div>
+
+  <footer>
+    Times are published weekday schedules — peek at live 150 / 100 arrivals in the GO Miami-Dade app before boarding.<br>
+    Street View buttons open Google Maps; tap the little person icon there for photo view.
+  </footer>
+
+</div>
+
+<script>
+  // In-memory only — refreshing resets the checklist.
+  var rail = document.querySelectorAll('#rail i');
+  var stages = document.querySelectorAll('.stage');
+  function paint(){
+    var done = document.querySelectorAll('.stage.cleared').length;
+    rail.forEach(function(seg,i){ seg.classList.toggle('done', i < done); });
+  }
+  stages.forEach(function(stage){
+    var btn = stage.querySelector('.check');
+    var orig = btn.textContent;
+    btn.setAttribute('aria-pressed','false');
+    btn.addEventListener('click', function(){
+      var done = stage.classList.toggle('cleared');
+      btn.textContent = done ? '✓ ' + orig.replace('Done — next!','Cleared!') : orig;
+      btn.setAttribute('aria-pressed', done ? 'true' : 'false');
+      paint();
+    });
+  });
+</script>
+</body>
+</html>
